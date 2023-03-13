@@ -1,0 +1,31 @@
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2VuYWxkbyIsImlkIjoiNjQwNzcxZGUwYTNhYzc0MTNiNjY0Y2UzIiwiaWF0IjoxNjc4MzgzMDcwfQ.UMxvijSvDR36VFfR122GSwIBpDys9FNAHDkyQm3PlLQ
+
+{
+    "content": "Creating a new note",
+    "important": true,
+    "userId": "6405188c890775a255b42369"
+
+}
+
+###
+
+# Testing validation
+POST http://localhost:3001/api/notes
+content-type: application/json
+
+{
+    "content": "Lol",
+    "important": true
+}
+
+###
+
+# Note without content can't be added and must returnm400
+POST http://localhost:3001/api/notes
+content-type: application/json
+
+{
+    "important": true
+}
